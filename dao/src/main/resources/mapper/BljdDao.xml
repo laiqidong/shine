@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shine.dao.BljdDao">
+
+
+    <select id="findBySfzhAndSjhm" resultType="com.shine.model.lchj.Bljd">
+        SELECT t.ywh,t.djlx,t.sqr,t.zjh as sfzh, t.hj,t.blts,t.lckey,t.slsj,t.sjhm
+         from V_BDC_BLJD t where t.zjh =#{zjh} and t.sjhm=#{sjhm}
+
+    </select>
+
+    <select id="findByYwhAndSfzh" resultType="com.shine.model.lchj.Bljd">
+        SELECT t.ywh,t.djlx,t.sqr,t.zjh as sfzh, t.hj,t.blts,t.lckey,t.slsj,t.sjhm
+        from V_BDC_BLJD t where t.ywh =#{ywh} and t.zjh=#{zjh}
+    </select>
+</mapper>

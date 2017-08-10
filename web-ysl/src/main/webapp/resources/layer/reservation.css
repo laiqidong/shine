@@ -1,0 +1,619 @@
+@charset "UTF-8";
+/*
+@decription: 预约
+@auther: xihun
+@create date: 2016-06-15;
+@version: v1.0
+*/
+/* line 16, ../sass/reservation.scss */
+.content-wrap {
+  background: #f2f2f2;
+}
+
+/* line 17, ../sass/reservation.scss */
+.reservation-wrap {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+/* line 22, ../sass/reservation.scss */
+.form-box {
+  background: #fff;
+  padding: 0.3rem 0.3rem 0;
+  margin-bottom: 0.6rem;
+  padding-bottom: 1px;
+}
+
+/* line 28, ../sass/reservation.scss */
+.form-col {
+  margin-bottom: 0.2rem;
+  padding-left: 2.1rem;
+  position: relative;
+  min-height: 0.68rem;
+}
+/* line 33, ../sass/reservation.scss */
+.form-col .col-tit {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 0.68rem;
+  font-size: 0.3rem;
+  color: #666;
+  font-weight: normal;
+}
+/* line 40, ../sass/reservation.scss */
+.form-col .col-con {
+  position: relative;
+}
+/* line 41, ../sass/reservation.scss */
+.form-col .form-input {
+  display: block;
+  width: 3.64rem;
+  height: 0.68rem;
+  line-height: 0.68rem;
+  font-size: 0.3rem;
+  padding: 0.14rem 0.2rem;
+  background: #fff;
+  color: #333;
+  border: 0.02rem solid #ccc;
+  border-radius: 0.1rem;
+  box-shadow: none;
+  appearance: button;
+  /*去除ios的输入框的内阴影*/
+  -moz-appearance: button;
+  /* Firefox */
+  -webkit-appearance: button;
+  /* Safari 和 Chrome */
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 58, ../sass/reservation.scss */
+.form-col .input-size-mid {
+  width: 2rem;
+}
+/* line 59, ../sass/reservation.scss */
+.form-col .form-select {
+  display: block;
+  width: 3.64rem;
+  height: 0.68rem;
+  line-height: 0.68rem;
+  font-size: 0.3rem;
+  padding: 0 0 0 0.2rem;
+  background: #fff;
+  color: #333;
+  border: 0.02rem solid #ccc;
+  border-radius: 0.1rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 75, ../sass/reservation.scss */
+.form-col .get-phone-code {
+  position: absolute;
+  right: 0;
+  top: 0.07rem;
+  width: 1.6rem;
+  height: 0.54rem;
+  line-height: 0.54rem;
+  text-align: center;
+  background: #04be02;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 0.1rem;
+}
+/* line 83, ../sass/reservation.scss */
+.form-col input.error, .form-col select.error {
+  border-color: #b71414;
+}
+/* line 84, ../sass/reservation.scss */
+.form-col .col-txt, .form-col em.error {
+  display: block;
+  font-size: 0.14rem;
+  color: #b71414;
+  margin-top: 0.1rem;
+}
+/* line 90, ../sass/reservation.scss */
+.form-col .hide {
+  display: none;
+}
+
+/* line 92, ../sass/reservation.scss */
+.remind-box {
+  margin: 0.3rem 0.3rem 0.6rem;
+  background: #fff;
+  height: 3.36rem;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 98, ../sass/reservation.scss */
+.remind-box .iconfont {
+  display: block;
+  margin: 0.7rem auto 0.32rem;
+  font-size: 0.9rem;
+}
+/* line 103, ../sass/reservation.scss */
+.remind-box .green {
+  color: #04be02;
+}
+/* line 104, ../sass/reservation.scss */
+.remind-box .red {
+  color: #b71414;
+}
+/* line 105, ../sass/reservation.scss */
+.remind-box .gray {
+  color: #888;
+}
+/* line 106, ../sass/reservation.scss */
+.remind-box p {
+  font-size: 0.28rem;
+  color: #000;
+}
+
+/* line 111, ../sass/reservation.scss */
+.user-info {
+  padding: 0 0.3rem;
+}
+
+/* line 114, ../sass/reservation.scss */
+.reser-box {
+  margin: 0 0.2rem;
+}
+/* line 116, ../sass/reservation.scss */
+.reser-box .reser-hd {
+  height: 0.78rem;
+  position: relative;
+}
+/* line 119, ../sass/reservation.scss */
+.reser-box .reser-hd h4 {
+  line-height: 0.78rem;
+  font-size: 0.3rem;
+  font-weight: normal;
+  color: #666;
+}
+/* line 125, ../sass/reservation.scss */
+.reser-box .reser-hd .cancel-btn {
+  position: absolute;
+  right: 0;
+  top: 0.12rem;
+  width: 1.46rem;
+  height: 0.54rem;
+  line-height: 0.54rem;
+  text-align: center;
+  background: #04be02;
+  color: #fff;
+  font-size: 0.28rem;
+  border-radius: 0.1rem;
+}
+/* line 134, ../sass/reservation.scss */
+.reser-box .reser-bd {
+  padding: 0 0.1rem;
+}
+
+/* line 136, ../sass/reservation.scss */
+.item-group {
+  background: #fff;
+}
+/* line 138, ../sass/reservation.scss */
+.item-group .item {
+  border-bottom: 1px solid #eaeaea;
+  font-size: 0;
+  height: 0.82rem;
+  line-height: 0.82rem;
+}
+/* line 143, ../sass/reservation.scss */
+.item-group .item:last-child {
+  border-bottom: none;
+}
+/* line 144, ../sass/reservation.scss */
+.item-group .item span {
+  display: inline-block;
+  font-size: 0.28rem;
+}
+/* line 148, ../sass/reservation.scss */
+.item-group .item .tit {
+  width: 2.08rem;
+  color: #666;
+}
+/* line 152, ../sass/reservation.scss */
+.item-group .item .con {
+  color: #000;
+}
+/* line 153, ../sass/reservation.scss */
+.item-group .item .cancel-btn {
+  display: block;
+  width: 1.46rem;
+  height: 0.54rem;
+  line-height: 0.54rem;
+  text-align: center;
+  background: #04be02;
+  color: #fff;
+  font-size: 0.28rem;
+  border-radius: 0.1rem;
+}
+
+/* line 166, ../sass/reservation.scss */
+.btn-box {
+  margin: 0 0.3rem;
+  text-align: center;
+}
+/* line 169, ../sass/reservation.scss */
+.btn-box .button {
+  display: block;
+  width: 100%;
+  height: 0.78rem;
+  line-height: 0.78rem;
+  text-align: center;
+  background: #04be02;
+  color: #fff;
+  font-size: 0.36rem;
+  border: none;
+  border-radius: 0.1rem;
+}
+
+/* line 179, ../sass/reservation.scss */
+.btn-group {
+  margin: 0 0.3rem;
+  text-align: center;
+  font-size: 0;
+    padding:0 0 0.5rem 0;
+}
+/* line 183, ../sass/reservation.scss */
+.btn-group a {
+  display: inline-block;
+  width: 2.8rem;
+  height: 0.68rem;
+  line-height: 0.68rem;
+  text-align: center;
+  font-size: 0.32rem;
+  border-radius: 0.1rem;
+}
+/* line 189, ../sass/reservation.scss */
+.btn-group .ok-btn {
+  color: #fff;
+  background: #04be02;
+  margin-left: 0.2rem;
+}
+/* line 194, ../sass/reservation.scss */
+.btn-group .cancel-btn {
+  color: #666;
+  background: #d1d1d1;
+}
+
+/* line 199, ../sass/reservation.scss */
+.btn-group-o {
+  margin: 0 0.3rem;
+}
+/* line 201, ../sass/reservation.scss */
+.btn-group-o a {
+  width: 4.53rem;
+}
+/* line 202, ../sass/reservation.scss */
+.btn-group-o .ok-btn {
+  margin-left: 0.28rem;
+}
+
+/* line 204, ../sass/reservation.scss */
+.remind-txt {
+  margin: 0.2rem 0.3rem;
+}
+/* line 206, ../sass/reservation.scss */
+.remind-txt p {
+  font-size: 0.28rem;
+  line-height: 0.36rem;
+  margin-bottom: 0.1rem;
+  color: #b2b2b2;
+  text-align: justify;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/* line 218, ../sass/reservation.scss */
+.type-group {
+  margin-top: 0.3rem;
+  border-top: 1px solid #ddd;
+}
+/* line 221, ../sass/reservation.scss */
+.type-group .type {
+  display: block;
+  background: #fff;
+  padding: 0.4rem 0.3rem;
+  border-bottom: 1px solid #ddd;
+  font-size: 0;
+}
+/* line 228, ../sass/reservation.scss */
+.type-group .pic, .type-group .txt {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 232, ../sass/reservation.scss */
+.type-group .pic {
+  width: 1.08rem;
+  height: 1.08rem;
+  overflow: hidden;
+}
+/* line 237, ../sass/reservation.scss */
+.type-group .txt {
+  width: 4.35rem;
+  margin-left: 0.24rem;
+}
+/* line 240, ../sass/reservation.scss */
+.type-group .txt p {
+  font-size: 0.24rem;
+  color: #b2b2b2;
+  margin-top: 0.1rem;
+}
+/* line 245, ../sass/reservation.scss */
+.type-group .txt .p-bold {
+  font-size: 0.3rem;
+  color: #000;
+}
+
+/* line 251, ../sass/reservation.scss */
+.rule-box {
+  background: #fff;
+  padding: 0.3rem 0.2rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 0.6rem;
+}
+/* line 256, ../sass/reservation.scss */
+.rule-box h4 {
+  font-size: 0.32rem;
+  font-weight: normal;
+  text-align: center;
+  color: #000;
+  margin-bottom: 0.3rem;
+}
+/* line 263, ../sass/reservation.scss */
+.rule-box p {
+  font-size: 0.28rem;
+  line-height: 0.36rem;
+  color: #888;
+  margin-bottom: 0.1rem;
+  text-align: justify;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/* line 273, ../sass/reservation.scss */
+.reser-info {
+  margin: 0.3rem 0.3rem 0.6rem;
+}
+/* line 275, ../sass/reservation.scss */
+.reser-info .item-group {
+  padding: 0 0.1rem;
+}
+
+/* line 278, ../sass/reservation.scss */
+.resertime {
+  margin-top: 0.3rem;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+/* line 282, ../sass/reservation.scss */
+.resertime .select-time {
+  display: block;
+  height: 0.82rem;
+  line-height: 0.82rem;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 0;
+  position: relative;
+}
+/* line 289, ../sass/reservation.scss */
+.resertime .select-time .txt, .resertime .select-time .time {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 0.3rem;
+  font-size: 0.28rem;
+}
+/* line 295, ../sass/reservation.scss */
+.resertime .select-time .txt {
+  width: 3.4rem;
+  color: #666;
+}
+/* line 299, ../sass/reservation.scss */
+.resertime .select-time .time {
+  width: 2.88rem;
+  color: #000;
+}
+/* line 303, ../sass/reservation.scss */
+.resertime .select-time:after {
+  content: "";
+  position: absolute;
+  right: 0.29rem;
+  top: 0.29rem;
+  width: 0.2rem;
+  height: 0.2rem;
+  border-top: 0.03rem solid #666;
+  border-right: 0.03rem solid #666;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 313, ../sass/reservation.scss */
+.resertime .reser-list {
+  padding: 0 0.3rem;
+}
+/* line 315, ../sass/reservation.scss */
+.resertime .reser-list li {
+  height: 0.54rem;
+  line-height: 0.54rem;
+  padding: 0.14rem 0;
+  border-top: 1px solid #eaeaea;
+  color: #000;
+  font-size: 0;
+}
+/* line 322, ../sass/reservation.scss */
+.resertime .reser-list li .time, .resertime .reser-list li .quantity, .resertime .reser-list li .reser-btn {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0.28rem;
+}
+/* line 327, ../sass/reservation.scss */
+.resertime .reser-list li .time {
+  width: 2.24rem;
+}
+/* line 328, ../sass/reservation.scss */
+.resertime .reser-list li .quantity {
+  width: 2.24rem;
+}
+/* line 329, ../sass/reservation.scss */
+.resertime .reser-list li .reser-btn, .resertime .reser-list li .full-txt {
+  width: 1.2rem;
+  height: 0.54rem;
+  line-height: 0.54rem;
+  text-align: center;
+  border-radius: 0.1rem;
+  font-size: 0.28rem;
+}
+/* line 334, ../sass/reservation.scss */
+.resertime .reser-list li .reser-btn {
+  background: #04be02;
+  color: #fff;
+}
+/* line 338, ../sass/reservation.scss */
+.resertime .reser-list li .full-txt {
+  display: none;
+  background: #d1d1d1;
+  color: #666;
+}
+/* line 343, ../sass/reservation.scss */
+.resertime .reser-list li .number {
+  font-weight: normal;
+}
+/* line 344, ../sass/reservation.scss */
+.resertime .reser-list li:first-child {
+  border-top: none;
+}
+/* line 346, ../sass/reservation.scss */
+.resertime .reser-list .full-li {
+  color: #666;
+}
+/* line 348, ../sass/reservation.scss */
+.resertime .reser-list .full-li .number {
+  color: #b71414;
+}
+/* line 349, ../sass/reservation.scss */
+.resertime .reser-list .full-li .reser-btn {
+  display: none;
+}
+/* line 350, ../sass/reservation.scss */
+.resertime .reser-list .full-li .full-txt {
+  display: inline-block;
+}
+
+/* line 354, ../sass/reservation.scss */
+.sidebar-content {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 6.4rem;
+  height: 100%;
+  background: #f2f2f2;
+  z-index: 105;
+  opacity: 1;
+  transform-origin: 0px 0px 0px;
+  transform: scale(1, 1);
+  display: none;
+}
+/* line 367, ../sass/reservation.scss */
+.sidebar-content .side-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 6.4rem;
+  z-index: 111;
+}
+/* line 374, ../sass/reservation.scss */
+.sidebar-content .sidebar-items-container {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+/* line 379, ../sass/reservation.scss */
+.sidebar-content .palceholder {
+  height: 0.88rem;
+  width: 6.4rem;
+}
+/* line 383, ../sass/reservation.scss */
+.sidebar-content .item-group {
+  padding: 0 0.32rem;
+  margin-top: 0.2rem;
+}
+/* line 386, ../sass/reservation.scss */
+.sidebar-content .item-group .item:last-child {
+  border-bottom: none;
+}
+/* line 388, ../sass/reservation.scss */
+.sidebar-content .time-group {
+  width: 100%;
+  margin-top: 0.2rem;
+  background: #fff;
+}
+/* line 392, ../sass/reservation.scss */
+.sidebar-content .time-group .list {
+  width: 6.4rem;
+  height: 0.88rem;
+  line-height: 0.88rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  color: #000;
+  font-size: 0.28rem;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* line 399, ../sass/reservation.scss */
+.sidebar-content .time-group .selected {
+  position: relative;
+  color: #04be02;
+}
+/* line 402, ../sass/reservation.scss */
+.sidebar-content .time-group .selected:after {
+  position: absolute;
+  right: 0.28rem;
+  top: 0.28rem;
+  content: "";
+  width: 0.28rem;
+  height: 0.14rem;
+  border-bottom: 0.04rem solid #04be02;
+  border-left: 0.04rem solid #04be02;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/* line 415, ../sass/reservation.scss */
+.sidebar-move {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  left: -100%;
+  -moz-animation: sidebar-body-move 0.5s 1 ease 0s;
+  -webkit-animation: sidebar-body-move 0.5s 1 ease 0s;
+  animation: sidebar-body-move 0.5s 1 ease 0s;
+}
+/* line 421, ../sass/reservation.scss */
+.sidebar-move .sidebar-content {
+  display: block;
+}
+
+@keyframes sidebar-body-move {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+@-webkit-keyframes sidebar-body-move {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}

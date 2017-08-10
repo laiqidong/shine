@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shine.dao.BankDao">
+    <select id="getBankList" resultType="com.shine.model.ysl.Bank">
+        select * from BANK t
+        WHERE 1=1
+        <if test="qlrmc !=null and qlrmc !=''">
+            and t.qlrmc like '%' || #{qlrmc} || '%'
+        </if>
+    </select>
+</mapper>

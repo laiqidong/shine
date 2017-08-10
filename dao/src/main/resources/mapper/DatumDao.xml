@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shine.dao.DatumDao">
+    <select id="getDatum" resultType="com.shine.model.ysl.Datum">
+        select d.ID,
+        d.LCDM,
+        d.DATUM_NAME datumName,
+        d.COPY_NUMBER copyNumber,
+        d.RECEIVE_TYPE receiveType,
+        d.ORIGINAL_NUMBER originalNumber,
+        d.DATUMSORT_NAME datumsortName,
+        d.DATUM_GUID datumGuid
+        from datum d
+        where d.LCDM=#{lcdm}
+        <if test="datumsortName!=null and datumsortName!=''">
+            and d.DATUMSORT_NAME = #{datumsortName}
+        </if>
+    </select>
+</mapper>

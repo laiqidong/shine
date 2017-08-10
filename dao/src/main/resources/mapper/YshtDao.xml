@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shine.dao.YshtDao">
+    <select id="findByDybsm" resultType="com.shine.model.ysl.Ysht">
+        SELECT BSM, HTBH, HTLX, HTQDRQ, FWBM, ZL, ZCS, JZMJ, TNJZMJ, GHYT, FWJG, FWXZ, HTQDMJ, GYQK, HTBASJ, GFJE/10000 gfje, FKFS, DKLX, XSFS, FWYT, SFJTS, SFJMJ, QXDM, HTZT, YWH FROM YSHT where FWBM = #{dybsm}
+        UNION ALL
+        SELECT BSM, HTBH, HTLX, HTQDRQ, FWBM, ZL, ZCS, JZMJ, TNJZMJ, GHYT, FWJG, FWXZ, HTQDMJ, GYQK, HTBASJ, GFJE, FKFS, DKLX, XSFS, FWYT, SFJTS, SFJMJ, QXDM, HTZT, YWH FROM T_YSHT where FWBM = #{dybsm}
+
+    </select>
+    <select id="findByHtbh" resultType="com.shine.model.ysl.YshtSqr">
+        select * from YSHT_SQR WHERE HTBH = #{htbh}
+        union all
+        select * from YSHT_T_SQR WHERE HTBH = #{htbh}
+    </select>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 接口平台通用查询xml -->
+
+<mapper namespace="com.shine.dao.DbmsJobsDao">
+
+    <select id="queryBySql" parameterType="java.lang.String"
+            resultType="java.util.HashMap">
+		${sql}
+	</select>
+
+    <update id="saveJob" parameterType="com.shine.model.system.DataBaseJobs">
+        <if test="job==null">
+            {call proc_jobs(#{what},#{nextDate},#{interval})}
+        </if>
+        <if test="job!=null">
+            {call dbms_job.change(${job},#{what},#{nextDate},#{interval})}
+        </if>
+    </update>
+
+    <select id="findByJob" parameterType="java.lang.Integer" resultType="com.shine.model.system.DataBaseJobs">
+		select  job,log_user logUser,last_date lastDate,next_date nextDate,interval,what  from user_jobs where job = #{job}
+	</select>
+
+
+    <update id="removeJob" parameterType="java.lang.Integer">
+				{call dbms_job.remove(${job})}
+	</update>
+</mapper>

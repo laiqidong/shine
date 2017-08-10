@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0103)http://www.jszwfw.gov.cn/jsjis/front/hplogin.do?appMark=jszwfw&gotoUrl=aHR0cDovL3d3dy5qc3p3ZncuZ292LmNu -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link type="text/css" rel="stylesheet" href="./global.css">
+<script type="text/javascript" src="./jquery.min.js"></script>
+<script type="text/javascript" src="./easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="./jquery.parser.js"></script>
+<link type="text/css" rel="stylesheet" href="./linkbutton.css">
+<script type="text/javascript" src="./jquery.linkbutton.js"></script>
+<script type="text/javascript" src="./jquery.resizable.js"></script>
+<script type="text/javascript" src="./jquery.draggable.js"></script>
+<link type="text/css" rel="stylesheet" href="./panel.css">
+<script type="text/javascript" src="./jquery.panel.js"></script>
+<link type="text/css" rel="stylesheet" href="./window.css">
+<script type="text/javascript" src="./jquery.window.js"></script>
+<link type="text/css" rel="stylesheet" href="./messager.css">
+<script type="text/javascript" src="./jquery.messager.js"></script>
+<link type="text/css" rel="stylesheet" href="./validity.css">
+<script type="text/javascript" src="./validity.js"></script>
+<script type="text/javascript" src="./validity(1).js"></script>
+<script type="text/javascript" src="./jquery.cookie.js"></script>
+<script type="text/javascript" src="./jsencrypt.min.js"></script>
+<script type="text/javascript" src="./rsa_util.js"></script>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+
+<title>首页登录框</title>
+<link href="./hanweb(1).css" rel="stylesheet" type="text/css">
+<style>
+*{ margin:0; padding:0; font-family:"微软雅黑";}
+a{ color:#333;}
+a:visited{ color:#333;}
+a:hover{ color:#4178be;}
+</style>
+
+<!--首页首屏登录框-->
+<style>
+.sc_login{ width:250px; height:247px; margin:0 auto; overflow:hidden; position:relative; background:url(http://nj.jszwfw.gov.cn/picture/3/1612071505218721567.png) repeat;}
+.login_tit_main{ height:42px; padding-left:32px; position:relative; background:url(http://nj.jszwfw.gov.cn/picture/3/1612071505218452868.png) 15px 14px no-repeat #e8e8e8; font-size:17px; line-height:42px;}
+.login_tit1{ width:56px; height:47px; position:absolute; top:0px; right:56px; font-size:15px; line-height:42px; text-align:center; cursor:pointer;}
+.login_tit2{ width:56px; height:47px; position:absolute; top:0px; right:0px; font-size:15px; line-height:42px; text-align:center; cursor:pointer;}
+.login_tit1:hover,.login_tit2:hover,.login_titOn{ background:url(http://nj.jszwfw.gov.cn/picture/3/1612071505217341256.png) top no-repeat; color:#fff;}
+.gr_login{ display:block; height:auto; overflow:hidden; position:relative;}
+.fr_login{ display:none; height:auto; overflow:hidden; position:relative;}
+
+.login_form{ width:220px; height:auto; margin:0 auto; padding-top:15px; overflow:hidden; position:relative;}
+.login_r1{ width:220px; height:91px; margin-bottom:20px; padding:0px 14px; background:url(http://nj.jszwfw.gov.cn/picture/3/1612071505218721567.png) repeat; border-radius:4px; border:1px solid #e3e3e3;}
+.login_user{ display:block; width:100%; height:45px; padding-left:35px; background:url(http://nj.jszwfw.gov.cn/picture/3/1612071505217881485.png) 3px center no-repeat; border:none; border-bottom:1px solid #e3e3e3; outline:none; font-size:15px; line-height:44px; color:#999; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.login_pswd{ display:block; width:100%; height:44px; padding-left:35px; background:url(http://nj.jszwfw.gov.cn/picture/3/1612071505218177985.png) 3px center no-repeat; border:none; outline:none; font-size:15px; line-height:44px; color:#999; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+.login_r2{ height:32px; margin-bottom:5px; padding-right:5px; overflow:hidden; position:relative;}
+.login_r2 a.zfbdl{ float:left; font-size:13px; line-height:32px; color:#0071bf; cursor:pointer;}
+.login_r2 a.wjmm{ float:right; font-size:13px; line-height:32px; color:#0071bf; cursor:pointer;}
+.login_r2 a:hover{ text-decoration:underline;}
+
+.login_r3{ height:36px; margin-bottom:5px; overflow:hidden; position:relative;}
+.login_submit{ display:block; width:102px; height:36px; position:absolute; top:0px; left:0px; background-color:#4e92e6; border-radius:3px; border:none; font-size:15px; font-weight:bold; line-height:36px; color:#fff; text-align:center; cursor:pointer; transition:all ease-in-out 0.2s;}
+.login_submit:hover{ background-color:#2865b1;}
+a.login_reg{ display:block; width:102px; height:36px; position:absolute; top:0px; right:0px; border:1px solid #4e92e6; border-radius:3px; font-size:15px; font-weight:bold; line-height:34px; color:#4e92e6; text-align:center; cursor:pointer;}
+a.login_reg:hover{ background-color:#F9FDFF;}
+</style>
+
+<script>
+window.alert = function (msg,type,fu){
+	top.$.messager.alert(' ',msg,type,fu);
+};
+$.validity.setup({
+	outputMode : "showErr"
+});
+
+window.confirm = function(msg,okCall,cancelCall){
+	top.$.messager.confirm(' ',msg,function(flag){
+		if(flag){
+			if(typeof(okCall) != 'undefined'){
+				okCall();
+			}
+		}else{
+			if(typeof(cancelCall) != 'undefined'){
+				cancelCall();
+			}
+		}
+	});
+};
+
+$(function(){
+	$('#grloginform').validity(function(){
+		
+	},{
+		beforeSubmit : function(validateResult) {
+			var u_user = $('#grusername').val();
+			var u_password = $('#grpwd').val();
+			$('#grenc_name').val(RSAencode(u_user));
+			$('#grenc_password').val(RSAencode(u_password));
+		},
+		success:function(result){
+			if(result.success){
+				var uuid = result.params.uuid;
+				if(uuid == "") {						
+					top.location.href = './login/index.do?nowpage=1';
+				}else {						
+					var mark = result.params.mark;
+					var ssourl = result.params.ssourl;
+					if(mark == "") {
+						alert(message);
+					}else {
+						top.location.href = "./login/auth.do?appmark=" + mark + "&ssourl=" + ssourl;
+					}
+				}
+			}else{
+				parent.jisopen(result.message);
+			}
+		}
+	});
+	
+	$('#frloginform').validity(function(){
+		
+	},{
+		beforeSubmit : function(validateResult) {
+			var u_user = $('#frusername').val();
+			var u_password = $('#frpwd').val();
+			$('#frenc_name').val(RSAencode(u_user));
+			$('#frenc_password').val(RSAencode(u_password));
+		},
+		success:function(result){
+			if(result.success){
+				var uuid = result.params.uuid;
+				var mark = result.params.mark;
+				if(uuid == "" && mark == "") {						
+					top.location.href = './login/index.do?nowpage=1';
+				}else {						
+					var ssourl = result.params.ssourl;
+					if(mark == "") {
+						alert(message);
+					}else {
+						top.location.href = "./login/auth.do?appmark=" + mark + "&ssourl=" + ssourl;
+					}
+				}
+			}else{
+				parent.jisopen(result.message);
+			}
+		}
+	});
+});
+//个人-法人登录框切换
+function checklogin(className) {
+	if(className == "login_tit2") {
+		$(".login_tit2").addClass("login_titOn").siblings(".login_tit1").removeClass("login_titOn");
+		$(".fr_login").stop().fadeIn(300).siblings(".gr_login").hide();
+	}else {		
+		$(".login_tit1").addClass("login_titOn").siblings(".login_tit2").removeClass("login_titOn");
+		$(".gr_login").stop().fadeIn(300).siblings(".fr_login").hide();
+	}
+}
+
+//个人
+function gr_submit() {
+	var grusername = $('#grusername').val();
+	var grpwd = $('#grpwd').val();
+	if(grusername == "") {
+		parent.jisopen("请填写登录名");
+	}else if(grpwd == "") {
+		parent.jisopen("请填写密码");
+	}else {
+		$("#grloginform").submit();
+	}
+}
+
+//法人
+function fr_submit() {
+	var frusername = $('#frusername').val();
+	var frpwd = $('#frpwd').val();
+	if(frusername == "") {
+		parent.jisopen("请填写登录名");
+	}else if(frpwd == "") {
+		parent.jisopen("请填写密码");
+	}else {
+		$("#frloginform").submit();
+	}
+}
+
+</script>
+</head>
+
+<body>
+
+<div class="sc_login">
+	<div class="login_tit_main">
+    	用户中心
+    	<div class="login_tit1 login_titOn" onclick="checklogin(&#39;login_tit1&#39;)">个人</div>
+    	<div class="login_tit2" onclick="checklogin(&#39;login_tit2&#39;)">企业</div>
+    </div>
+    <!--个人登录-->
+    <div class="gr_login" style="display: block;">
+    	<form id="grloginform" action="http://www.jszwfw.gov.cn/jsjis/front/dologin.do" method="post" class="login_form">
+            	<input id="grenc_name" type="hidden" name="username"> 
+				<input id="grenc_password" type="hidden" name="password"> 
+				<input type="hidden" name="uuid" value="Ojbueqr0bSZj">
+				<input type="hidden" name="appMark" value="jszwfw">
+				<input type="hidden" name="gotoUrl" value="aHR0cDovL3d3dy5qc3p3ZncuZ292LmNu">
+				<input type="hidden" name="usertype" value="1">
+				<input type="hidden" name="ishowverifycode" id="ishowverifycode" value="0">
+        	<div class="login_r1">
+				<input id="grusername" class="login_user" type="text" placeholder="用户名/手机号/身份证">
+        		<input id="grpwd" class="login_pswd" type="password" placeholder="请输入密码">
+            </div>
+            <div class="login_r3">
+            	<input class="login_submit" type="button" value="登 录" onclick="gr_submit();">
+                <a class="login_reg" href="http://www.jszwfw.gov.cn/jsjis/front/register/perregister.do" target="_blank">注&nbsp;册</a>
+            </div>
+            <div class="login_r2">
+                <a class="zfbdl" href="http://www.jszwfw.gov.cn/jsjis/alipay/login.do" target="_blank">支付宝登录</a>
+                <a class="wjmm" href="http://www.jszwfw.gov.cn/jsjis/front/findpwd/step1.do" target="_blank">忘记密码？</a>
+            </div>
+        </form>
+    </div>
+    <!--法人登录-->
+    <div class="fr_login" style="display: none;">
+    	<form id="frloginform" action="http://www.jszwfw.gov.cn/jsjis/front/dologin.do" method="post" class="login_form">
+            	<input id="frenc_name" type="hidden" name="username"> 
+				<input id="frenc_password" type="hidden" name="password"> 
+				<input type="hidden" name="uuid" value="Ojbueqr0bSZj">
+				<input type="hidden" name="appMark" value="jszwfw">
+				<input type="hidden" name="gotoUrl" value="aHR0cDovL3d3dy5qc3p3ZncuZ292LmNu">
+				<input type="hidden" name="usertype" value="2">
+				<input type="hidden" name="ishowverifycode" value="0">
+        	<div class="login_r1">
+        		<input id="frusername" class="login_user" type="text" placeholder="用户名/工商号/组织机构代码">
+        		<input id="frpwd" class="login_pswd" type="password" placeholder="请输入密码">
+            </div>
+            <div class="login_r3">
+            	<input class="login_submit" type="button" value="登 录" onclick="fr_submit();">
+                <a class="login_reg" href="http://www.jszwfw.gov.cn/jsjis/front/register/corregister.do" target="_blank">注&nbsp;册</a>
+            </div>
+            <div class="login_r2">
+            <!--  
+                <a class="zfbdl" href="../alipay/login.do" target="_blank">支付宝登录</a>-->
+                <a class="wjmm" href="http://www.jszwfw.gov.cn/jsjis/front/findpwd/step1.do" target="_blank">忘记密码？</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body></html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shine.dao.UserDao">
+
+  <select id="getUserEntityList" resultType="java.util.HashMap">
+    select  t.id,t.username,t.staff_name,t.last_login,t.status,n.role_name  from user_entity t,role_entity n where t.status!=0
+     and t.role_id = n.id
+     <if test="username!=null and username!=''">
+             and t.username=#{username}
+      </if>
+      <if test="staffName!=null and staffName!=''">
+          and t.staff_name=#{staffName}
+      </if>
+      <if test="roleId!=null and roleId!=''">
+          and t.role_id=#{roleId}
+      </if>
+      <if test="status!=null and status!=''">
+          and t.status=#{status}
+      </if>
+  </select>
+
+</mapper>

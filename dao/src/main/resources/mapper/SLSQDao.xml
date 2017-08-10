@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shine.dao.SLSQDao">
+    <select id="getSlsqList" resultType="com.shine.model.ysl.SLSQ">
+        select s.*,d.value lcmc from SLSQ s
+        LEFT JOIN T_DICT d ON s.DJXL = d.CODE
+        WHERE d.NAME = 'LCDM'
+        <if test="yslywh != null and yslywh != ''">
+            AND s.YSLYWH = #{yslywh}
+        </if>
+        <if test="user_id != null and user_id != ''">
+            AND s.user_id = #{user_id}
+        </if>
+        <if test="zt != null and zt != ''">
+            AND s.zt = #{zt}
+        </if>
+        <if test="blzt == 1">
+            AND s.zt in (1,2,3)
+        </if>
+        <if test="blzt == 2">
+            AND s.zt in(4,5)
+        </if>
+        <if test="blzt == 3">
+            AND s.zt in (2,3,4,5)
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND to_date(to_char(s.sqsj,'yyyy-mm-dd'),'yyyy-mm-dd') >= to_date(#{startTime},'yyyy-mm-dd')
+        </if>
+        <if test="endTime != null and endTime !=''">
+            AND to_date(#{endTime},'yyyy-mm-dd')>=to_date(to_char(s.sqsj,'yyyy-mm-dd'),'yyyy-mm-dd')
+        </if>
+        order by s.sqsj desc
+    </select>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shine.dao.MenuDao">
+    <insert id="addMenu" useGeneratedKeys="true" keyProperty="id"  parameterType="com.shine.model.manage.MenuEntity">
+        INSERT INTO MENU_ENTITY (ID, MENUNAME, URL, ORDERNUM, PARENTID)
+        VALUES (
+        SEQ_MENU_ENTITY.NEXTVAL,
+          #{menuname,jdbcType=VARCHAR},
+          #{url,jdbcType=VARCHAR},
+          #{orderNum,jdbcType=NUMERIC},
+          #{parentId,jdbcType=NUMERIC}
+        )
+        <!---->
+        <!--<selectKey resultType="long" order="BEFORE" keyProperty="id">-->
+            <!--SELECT SEQ_MENU_ENTITY.NEXTVAL as id FROM dual-->
+        <!--</selectKey>-->
+    </insert>
+    <insert id="saveRoleMenu">
+        insert into T_ROLE_MENU (ROLEID,MENUID) values (#{roleId},#{menuId})
+    </insert>
+
+    <update id="updateMenu" parameterType="com.shine.model.manage.MenuEntity">
+       update T_MENU set
+           MENUNAME = #{menuname,jdbcType=VARCHAR},
+           URL = #{url,jdbcType=VARCHAR},
+           ORDERNUM =  #{orderNum,jdbcType=NUMERIC},
+           PARENTID = #{parentId,jdbcType=NUMERIC}
+       where id = #{id}
+    </update>
+
+    <delete id="deleteMenu">
+        update set status=0 from MENU_ENTITY where id = #{id} or parent_id=#{id}
+    </delete>
+    <delete id="deleteRoleMenuByRoleID">
+        DELETE from T_ROLE_MENU where ROLEID= #{roleId}
+    </delete>
+
+    <select id="findByParentId" resultType="com.shine.model.manage.MenuEntity">
+        select * from T_MENU where PARENTID = #{parentId}
+    </select>
+
+    <select id="getMenuById" resultType="com.shine.model.manage.MenuEntity">
+        SELECT * from T_MENU WHERE ID = #{id}
+    </select>
+
+    <select id="getMenuIdByRole" resultType="java.lang.Integer">
+        select MENUID from T_ROLE_MENU WHERE ROLEID = #{id}
+    </select>
+</mapper>

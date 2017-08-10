@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shine.dao.RegisterDao">
+    <select id="getLandList" resultType="com.shine.model.ysl.ZD" parameterType="java.util.Map">
+        select zrz.kfsbsm,zrz.xmmc,zd.* from(
+        select zddm,kfsbsm,xmmc from zrz
+        group by zddm,kfsbsm,xmmc
+        )zrz
+        left join zd_shiyq zd on zrz.zddm = zd.zddm
+        where zd.zddm is not null
+        and KFSBSM is not null
+        <if test="zddm != null and zddm != ''">
+            AND ZDDM like '%' || #{zddm} || '%'
+        </if>
+        <if test="zl != null and zl != ''">
+            AND zl like '%' || #{zl} || '%'
+        </if>
+        <if test="bdcdyh != null and bdcdyh != ''">
+            AND bdcdyh like '%' || #{bdcdyh} || '%'
+        </if>
+        <if test="xmmc != null and xmmc != ''">
+            AND xmmc like '%' || #{xmmc} || '%'
+        </if>
+        <if test="kfsbsm != null and kfsbsm != ''">
+            AND kfsbsm like '%' || #{kfsbsm} || '%'
+        </if>
+        ORDER BY bsm asc
+    </select>
+
+    <select id="getBuildings" resultType="java.util.Map">
+        select * from ZRZ WHERE 1=1
+        <if test="zddm != null and zddm != ''">
+            AND ZDDM = #{zddm}
+        </if>
+        <if test="zdshiyqbsm != null and zdshiyqbsm != ''">
+            AND ZDSHIYQBSM = #{zdshiyqbsm}
+        </if>
+        ORDER BY ZRZH
+    </select>
+
+    <select id="getHouses" resultType="java.util.Map">
+        SELECT --nvl2(max(yd.bsm),1,0) YG,nvl2(max(fd.bsm),1,0) FD,
+--         CASE WHEN xmgx.bsm> 0 AND slsq.zt!=4 and slsq.zt!=5 THEN 1 ELSE 0 END blz,
+        zt.CFZT,zt.DYZT,zt.YGZT,zt.XZZT,zt.QSZT,
+        h.bsm,h.bdcdyh,h.zrzh,h.zrzbsm,h.hh,h.ch,h.dyh,h.FFLB,h.ZFBSM FROM H h
+        --LEFT JOIN ygdj_dygx yd on yd.dybsm = h.BSM
+        --LEFT JOIN fdcq_dygx fd on fd.dybsm = h.BSM
+        LEFT JOIN BDCDYZT zt ON h.BSM = zt.DYBSM
+--         LEFT JOIN XMGX xmgx ON h.BSM = xmgx.DYBSM
+--         LEFT JOIN SLSQ slsq ON slsq.YSLYWH = xmgx.YSLYWH
+        WHERE 1=1
+        and h.bdcdyh is not null
+        <if test="zrzbsm != null and zrzbsm != ''">
+            AND h.ZRZBSM = #{zrzbsm}
+        </if>
+        <if test="ygzt != null and ygzt != ''">
+            AND zt.ygzt > 0
+        </if>
+        <if test="qszt != null and qszt != ''">
+            AND zt.qszt = #{qszt}
+        </if>
+        --AND h.FFLB != 2
+--         GROUP BY h.bsm,h.bdcdyh,h.zrzh,h.zrzbsm,h.hh,h.ch,h.dyh,h.FFLB,h.ZFBSM,zt.CFZT,zt.DYZT,zt.YGZT,zt.XZZT
+        ORDER BY h.hh
+    </select>
+
+    <select id="getHouseDetail" resultType="java.util.Map">
+        select zt.CFZT,zt.DYZT,zt.YGZT,zt.XZZT,h.*,zt.QSZT qszt from H h
+        LEFT JOIN BDCDYZT zt ON h.BSM = zt.DYBSM
+        WHERE h.BSM = #{dybsm}
+    </select>
+
+    <select id="getRegisterList" resultType="java.util.Map">
+        select t.ywh,dy.qllxmc||lclx DJLX,sh.qlbm,sh.qlbsm,sh.qlrmc,sh.qszt,sh.dbnr,sh.dbr,to_char(sh.dbsj,'yyyy-MM-dd') DBSJ
+        from (
+        select f.ywh
+        from fdcq f
+        left join fdcq_dygx t
+        on f.bsm = t.qlbsm
+        where t.dybsm = #{dybsm} and f.qszt = 1
+        union all
+        select d.ywh
+        from dyaq d
+        left join dyaq_dygx t
+        on d.bsm = t.dyaqbsm
+        where t.dybsm = #{dybsm} and d.qszt = 1
+        union all
+        select c.ywh
+        from cfdj c
+        left join cfdj_dygx t
+        on c.bsm = t.cfdjbsm
+        where t.dybsm = #{dybsm} and c.qszt = 1
+        union all
+        select y.ywh
+        from ygdj y
+        left join ygdj_dygx t
+        on y.bsm = t.ygdjbsm
+        where t.dybsm = #{dybsm} and y.qszt = 1
+        )t
+        left join sh sh on sh.ywh = t.ywh
+        left join t_lcdy dy on dy.lcdm = sh.lcdm
+        order by sh.DBSJ
+    </select>
+    <select id="getHousesByZfbsm" resultType="java.util.Map">
+        select zt.CFZT,zt.DYZT,zt.YGZT,zt.XZZT,h.* from H h
+        LEFT JOIN BDCDYZT zt ON h.BSM = zt.DYBSM
+        WHERE h.ZFBSM = #{zfbsm}
+    </select>
+    <select id="getHousesByYslywh" resultType="com.shine.model.ysl.H">
+        select * from h where BSM in (select dybsm from XMGX where YSLYWH = #{yslywh})
+    </select>
+    <select id="findXmgxByDybsm" resultType="com.shine.model.ysl.XMGX">
+        select x.* from slsq s
+        left join xmgx x
+        on x.YSLYWH = s.YSLYWH
+        where s.ZT != 4 and s.ZT != 5
+        and x.DYBSM = #{dybsm}
+    </select>
+    <select id="isBlz" resultType="java.lang.Integer">
+        select count(1) from (
+          select x.* from slsq s
+            left join xmgx x
+            on x.YSLYWH = s.YSLYWH
+            where s.ZT != 4 and s.ZT != 5
+            and x.DYBSM = #{dybsm}
+        )
+    </select>
+</mapper>

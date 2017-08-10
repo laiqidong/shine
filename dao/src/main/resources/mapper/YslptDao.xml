@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 平台通用查询xml -->
+
+<mapper namespace="com.shine.dao.YslptDao">
+	<select id="queryBySql" parameterType="java.lang.String"
+		resultType="java.util.HashMap">
+		${sql}
+	</select>
+	<select id="getYslywh" resultType="java.lang.String">
+		select to_char(sysdate,'yyyymmdd')||to_char(SEQ_YSLYWH.nextval,'fm000000') from dual
+	</select>
+
+</mapper>

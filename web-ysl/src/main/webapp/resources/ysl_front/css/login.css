@@ -1,0 +1,70 @@
+*{margin: 0px;padding: 0px;}
+ul{list-style: none;}
+.fl{float: left;}
+.fr{float: right;}
+.cl{clear: both;}
+a{text-decoration: none;transition: all 0.2s ease-out 0s;}
+img{border: none;}
+html{overflow-x: hidden;}
+
+.login-head{border: 0px solid red;background: #ffffff;padding-top:6px;}
+.login-head-center{border: 0px solid red;margin: 0 auto;height:84px;width: 1200px;position: relative;}
+.top_logo_a{position: absolute;top: 8px;}
+.top_logo_a span{font-family: simhei; font-size:24px;color: #0668B5;display: inline-block;}
+.top_logo_a strong{font-weight: 100;font-size:20px;font-family: simhei;}
+
+.search-form{height: 46px;line-height: 46px;width: 430px;margin-top: 10px;background: #ffffff;border-radius:23px;border: 1px solid #DDDDDD;}
+.search-form img{float: right;width:24px;margin-top: 10px;margin-right: 22px;cursor: pointer;}
+.search-form input{height:35px;line-height:35px;margin-left: 20px;width:348px;border: none;background: #ffffff;outline: none;font-family: "微软雅黑";color: #999999;font-size: 16px;}
+
+.top_logo_a img{float: left;margin-right: 6px;}
+.welcome{margin-left: 60px;color: #0668B5;font-family:simhei;font-size:24px;}
+
+
+/*.login-main{border: 0px solid red;height: 580px;background: #50c0d8 url(../images/login-bg.png) no-repeat 60px center;position: relative;z-index: 99;}
+*/
+.login-main{width: 100%;height:auto;padding: 10px;position: absolute; padding-bottom:0px;min-height: 450px;top:80px;bottom:110px; background: #50c0d8 url(../images/login-bg.png) no-repeat 60px center;background-size:40%;z-index: 99;}
+
+/*.login-wrap{border: 1px solid #CCCCCC;background: #ffffff; width: 320px;position: absolute;top: 100px;right: 120px;height: 360px;padding: 0px 20px;}
+*/
+.login-wrap{border: 1px solid #CCCCCC;background: #ffffff; width: 320px;position: absolute;top: 100px;top:15%;right:15%;min-height: 360px;padding: 0px 20px;}
+.login-wrap .wrap-head{height:56px;}
+.login-form-11{color: #4178be;float: left;width: 120px;height: 56px;line-height: 56px;font-size: 17px;}
+.denglu_form_14,.denglu_form_13,.denglu_form_12{color: #666;float: right;height: 26px;line-height: 26px;font-size: 13px;margin-top: 15px;padding: 0 5px;cursor: pointer;}
+ .denglu_form_14 a,.denglu_form_13 a,.denglu_form_12 a{color: #000000;}
+.denglu_form_14 a:hover,.denglu_form_12 a:hover{color: #ff0000;}
+
+/*登录框部分*/
+.login-main .list{position: relative;border: 1px solid #E0E0E0;}
+.login-main .icon{width:46px;margin-top:10px;}	
+.login-main .list .row{position: relative;}
+.login-main .list .row:after{position: absolute;left:6px;bottom:0px;right:6px;height: 1px;content: '';background: #E0E0E0;}
+.login-main .list:after{position: absolute;left: 0px;bottom:0px;right:0px;height: 1px;content: '';background: #fff;}	
+.login-main .fleft {float: left;margin-right:0px;}
+.login-main .fright {float: right;margin-left:4px;}
+.login-main .content {min-height:45px;overflow: hidden;}
+.login-main .content .inputborder {overflow: hidden;text-align: left;text-indent: 4px;}
+.login-main .content .inputborder input {border: none;outLine: none;background: #fff;text-indent: 4px;height: 45px;line-height: 30px;font-size: 14px;}
+.drag-code{margin-top: 20px;}
+.btn {width: 100%;text-align: center;height: 44px;line-height: 44px;border-radius:3px;cursor: pointer;}
+.btn-login{background: #3090e8;color: #ffffff;margin-top: 20px;}
+.btn-login:hover{background:#2d89dd;}
+
+
+/*.login-footer{background: #cfcfcf;}*/
+
+.login-footer{background: #cfcfcf;position:fixed;bottom: 0px;padding-top: 30px;width: 100%;}
+.login-footer-copyright{width:100%;height:110px;margin: 0 auto;position: relative;border:0px solid red;}
+.foot_dzjg{width: 50px;height: 62px;position: absolute;top: 24px;left: 100px;}
+.foot_word{position: absolute;top: 10px;left:200px;}
+.foot_word_r1{height: 32px;}
+.foot_word_r1 a{font-size: 15px;line-height: 32px;cursor: pointer;color: #000;}
+.foot_word_r1 a:hover{color: #4178BE;}
+.foot_word_r2 span, .foot_word_r3 span {margin-right: 10px;font-size: 14px;line-height: 32px;color: #666;}
+.foot_word_r2 span a {color: #666;}
+.foot_word_r2 span a:hover {color: #4178be;}
+.login-footer .weixin{margin-right:200px}
+
+.browser-tip{margin-top: 10px;line-height:22px;font-family: "微软雅黑";font-size: 14px;}
+.browser-tip a{color: #2D89DD}
+  

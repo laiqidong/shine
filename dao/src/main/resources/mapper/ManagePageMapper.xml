@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.shine.dao.ManagePageDao">
+
+    <select id="queryBySql" parameterType="java.lang.String"
+            resultType="java.util.HashMap">
+		${sql}
+	</select>
+
+    <update id="updateBySql" parameterType="String">
+		${sql}
+	</update>
+
+    <delete id="deleteBySql" parameterType="String">
+		${sql}
+	</delete>
+
+    <update id="deleteBatch">
+		update ${table} set status=0 where id in ${ids}
+	</update>
+
+
+    <select id="getSysConfigList" parameterType="com.shine.model.system.SysConfig"
+            resultType="java.util.HashMap">
+        select * from SYS_CONFIG where status!=0
+        <if test="name!=null and name!=''">
+            and name=#{name}
+        </if>
+        <if test="value!=null and value!=''">
+            and value=#{value}
+        </if>
+        <if test="status!=null and status!=''">
+            and status=#{status}
+        </if>
+        ORDER BY ID
+    </select>
+
+    <select id="getDatabaseJobList" parameterType="com.shine.model.system.DataBaseJobs"
+            resultType="java.util.HashMap">
+        select job,log_user,last_date,next_date,interval,what from user_jobs where 1=1
+        <if test="job!=null and job!=''">
+            and job=#{job}
+        </if>
+        <if test="logUser!=null and logUser!=''">
+            and log_User='${logUser}'
+        </if>
+        <if test="what!=null and what!=''">
+            and what like '%${what}%'
+        </if>
+        <if test="interval!=null and interval!=''">
+            and interval like '%${interval}%'
+        </if>
+    </select>
+
+    <select id="getRoleList" resultType="java.util.HashMap">
+        select * from ROLE_ENTITY where status>=1
+        <if test="id!=null and id!=''">
+            and id=#{id}
+        </if>
+        <if test="status!=null and status!=''">
+            and status=#{status}
+        </if>
+    </select>
+
+    <select id="getWorkGuideList" resultType="java.util.HashMap">
+        select id,nvl(create_name,' ')as create_name ,qllx,djlx,syqx,status,create_time,content from work_guide where status>0
+        <if test="qllx!=null and qllx!=''">
+            and qllx=#{qllx}
+        </if>
+        <if test="djlx!=null and djlx!=''">
+            and djlx=#{djlx}
+        </if>
+        <if test="status!=null and status!=''">
+            and status=#{status}
+        </if>
+    </select>
+
+    <select id="getQuestionAnswerList" resultType="java.util.HashMap">
+        select * from QUESTION_ANSWER where status>0
+        <if test="id!=null and id!=''">
+            and id=#{id}
+        </if>
+        <if test="status!=null and status!=''">
+            and status=#{status}
+        </if>
+        <if test="question!=null and question!=''">
+            and question=#{question}
+        </if>
+    </select>
+    <select id="getDocumentDownloadList" resultType="java.util.HashMap">
+        select t.id,t.suffix,t.name,t.address,t.upload_time,nvl(t.description,' ') as description,n.type,t.status from DOCUMENT_DOWNLOAD t, DOWNLOAD_TYPE n
+        where t.status>0 and t.type_id=n.id
+        <if test="typeId!=null and typeId!=''">
+            and t.type_id=#{typeId}
+        </if>
+        <if test="status!=null and status!=''">
+            and t.status=#{status}
+        </if>
+    </select>
+
+    <select id="getDownloadTypeList" resultType="java.util.HashMap">
+        select id,nvl(description,' ')as description,type,status from DOWNLOAD_TYPE where status>0
+        <if test="id!=null and id!=''">
+            and id=#{id}
+        </if>
+        <if test="status!=null and status!=''">
+            and status=#{status}
+        </if>
+    </select>
+
+    <select id="getPubUserList" resultType="java.util.HashMap">
+        select * from PUB_USER where status>0
+        <if test="type!=null and type!=''">
+            and type=#{type}
+        </if>
+        <if test="account!=null and account!=''">
+            and account=#{account}
+        </if>
+        <if test="kfsbsm!=null and kfsbsm!=''">
+            and kfsbsm=#{kfsbsm}
+        </if>
+        <if test="name!=null and name!=''">
+            and name=#{name}
+        </if>
+
+        <if test="status!=null and status!=''">
+            and status=#{status}
+        </if>
+    </select>
+
+
+    <select id="getKfsList" resultType="java.util.HashMap">
+        select bsm,kfsmc from KFS
+    </select>
+
+    <select id="getUserLoginLogList" resultType="java.util.HashMap">
+        select * from PUB_USER_LOGIN_LOG
+    </select>
+
+    <select id="getHelpList" resultType="java.util.HashMap">
+        select * from HELP where status>0
+    </select>
+
+    <select id="getInformationList" resultType="java.util.HashMap">
+        select t.id,t.info_title,nvl(t.author,' ') as author,t.info_date,nvl(t.des,' ') as des,n.type,t.status from INFORMATION t,INFO_TYPE n
+        where t.status>0 and t.type_id=n.id
+        <if test="typeId!=null and typeId!=''">
+            and t.type_id=#{typeId}
+        </if>
+        <if test="status!=null and status!=''">
+            and t.status=#{status}
+        </if>
+        <if test="infoTitle!=null and infoTitle!=''">
+            and t.info_title=#{infoTitle}
+        </if>
+        order by t.info_date DESC
+    </select>
+
+    <select id="getInfoTypeList" resultType="java.util.HashMap">
+        select id,nvl(description,' ') as description,type,status from INFO_TYPE where status>0
+        <if test="type!=null and type!=''">
+            and type=#{type}
+        </if>
+        <if test="status!=null and status!=''">
+            and status=#{status}
+        </if>
+    </select>
+
+    <select id="getDictList" resultType="java.util.HashMap">
+        select * from T_DICT where status>0
+        <if test="name!=null and name!=''">
+            and name=#{name}
+        </if>
+        <if test="code!=null and code!=''">
+            and code=#{code}
+        </if>
+        <if test="status!=null and status!=''">
+            and status=#{status}
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.shine.repository"/>
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <!-- 指定数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 指定Entity实体类包路径 -->
+        <property name="packagesToScan">
+            <list>
+                <value>com.shine.model</value>
+            </list>
+        </property>
+        <!-- 指定JPA属性；如Hibernate中指定是否显示SQL的是否显示、方言等 -->
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <!-- 是否生成ddl文件 -->
+                <property name="generateDdl" value="false"/>
+                <!-- 是否展示sql -->
+                <property name="showSql" value="false"/>
+                <!-- 必要的数据库库使用的详细信息 -->
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect"/>
+                <!-- mysql,自行选择 -->
+                <property name="database" value="MYSQL"/>
+
+            </bean>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">none</prop>-->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

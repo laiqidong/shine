@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common-util/common-util.iml" filepath="$PROJECT_DIR$/common-util/common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dao/dao.iml" filepath="$PROJECT_DIR$/dao/dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security/security.iml" filepath="$PROJECT_DIR$/security/security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shine.iml" filepath="$PROJECT_DIR$/shine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro/shiro.iml" filepath="$PROJECT_DIR$/shiro/shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-weChat/web-weChat.iml" filepath="$PROJECT_DIR$/web-weChat/web-weChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-ysl/web-ysl.iml" filepath="$PROJECT_DIR$/web-ysl/web-ysl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-ysl-sys/web-ysl-sys.iml" filepath="$PROJECT_DIR$/web-ysl-sys/web-ysl-sys.iml" />
+    </modules>
+  </component>
+</project>

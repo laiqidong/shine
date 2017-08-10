@@ -1,0 +1,28 @@
+.tab-help{border:0px solid red;width:80%; margin:10px auto;margin-top: 30px;}
+ .tab-help .box{border: 0px solid red;margin-top:20px;padding-top: 20px;min-height:470px;}
+ .tab-help .box .tab-title{height:50px;line-height:50px;}
+ .tab-help .box .tab-title li{float: left;padding: 0 16px;border: 1px solid #dddddd;border-bottom: none;cursor: pointer;margin-right:10px;font-family: "微软雅黑";font-size: 16px;color: #333;font-weight:600;}
+  .tab-help .box .tab-title li.on{background-color: #ffffff;border-top: 2px solid #FD8111;color: #FD8111;}
+ .tab-con{border: 1px solid #dddddd;}
+  .tab-con .con{border: 0px solid red;margin: 20px 40px 20px 20px}
+  .shouli-list li{height:97px;border: 1px solid #dddddd;border-radius: 4px;border-left: none;margin-top: 20px}
+  .shouli-list li p.list-title{margin:10px 20px;overflow: hidden;font-family: "微软雅黑";font-size: 16px;color: #333;font-weight:600;}
+  .shouli-list li p.list-info{margin:10px 20px;overflow: hidden;font-family: "微软雅黑";font-size: 14px;color: #333;}
+
+  .shenqin-list li{height:46px;border:0px solid #dddddd;border-radius: 4px;border-left: none;margin-top:18px;position: relative;}
+  .shenqin-list li .num{width:30px;height:30px;line-height:30px;border-radius: 50%;font-family:"simsun";font-size:20px;color: #fff;font-weight: bold; text-align: center;margin:4px 20px;background: #FD8111 ;}
+  .shenqin-list li .down-arrow{position: absolute;top:30px;left:30px;}
+  .shenqin-list li p.list-title{margin:10px 20px;overflow: hidden;font-family: "微软雅黑";font-size: 16px;color: #333;font-weight:600;margin-top: 2px;}
+  .shenqin-list p.list-info{margin:0px 20px;overflow: hidden;font-family: "微软雅黑";font-size: 14px;color: #333;margin-top: -10px;}
+  
+  .shouli-list li .fl img,.shenqin-list li .fl img{width:80px;margin-right: 20px}
+
+  .question-list li{border-bottom: 1px solid #dddddd;padding:10px 10px;margin-left:40px;color: #2475DD;font-family: "微软雅黑";font-size: 16px;cursor: pointer;}
+  .question-list li:hover{color: #FD8111;}
+  .question-list li .list-info{color: #333333 !important;margin-top:4px; display: none;}
+
+.tab-con .con table{height:97px;width:95% ;border: 1px solid #dddddd;border-radius: 4px;border-left: none;margin-top: 20px;}
+
+.tab-con .con table tr{width: 250px}
+
+/*.tab-con .con table tr img{width:80px;margin-right: 20px}*/
